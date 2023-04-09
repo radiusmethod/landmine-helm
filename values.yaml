@@ -39,7 +39,12 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 29999
+  admin:
+    port: 29999
+    protocol: TCP
+  sink:
+    port: 9999
+    protocol: TCP
 
 ingress:
   enabled: false

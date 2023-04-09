@@ -7,9 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.service.admin.port }}
       targetPort: http
-      protocol: TCP
-      name: http
+      protocol: {{ .Values.service.admin.protocol }}
+      name: admin
+    - port: {{ .Values.service.sink.port }}
+      targetPort: http
+      protocol: {{ .Values.service.sink.protocol }}
+      name: sink
   selector:
     {{- include "landmine.selectorLabels" . | nindent 4 }}

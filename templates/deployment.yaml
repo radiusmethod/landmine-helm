@@ -37,9 +37,12 @@ spec:
             - configMapRef:
                 name: landmine-config
           ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
-              protocol: TCP
+            - name: admin
+              containerPort: {{ .Values.service.admin.port }}
+              protocol: {{ .Values.service.admin.protocol }}
+            - name: sink
+              containerPort: {{ .Values.service.sink.port }}
+              protocol: {{ .Values.service.sink.protocol }}
           livenessProbe:
             httpGet:
               path: /
