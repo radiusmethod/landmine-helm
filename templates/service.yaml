@@ -8,11 +8,11 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.admin.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.admin.port }}
       protocol: {{ .Values.service.admin.protocol }}
       name: admin
     - port: {{ .Values.service.sink.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.sink.port }}
       protocol: {{ .Values.service.sink.protocol }}
       name: sink
   selector:
