@@ -3,4 +3,8 @@ kind: ConfigMap
 metadata:
   name: landmine-config
 data:
-  REDIS_ADDRESS: landmine-redis-master.default.svc.cluster.local
+  LANDMINE_REDIS_ADDRESS: landmine-redis-master.default.svc.cluster.local
+  LANDMINE_SINK_WEB_HOSTNAME: {{ .Values.landmine.sink.web.hostname }}
+  LANDMINE_SINK_WEB_PROTOCOL: {{ .Values.landmine.sink.web.protocol }}
+  LANDMINE_SINK_DNS_HOSTNAME: {{ .Values.landmine.sink.dns.hostname }}
+  LANDMINE_SINK_EMAIL_HOSTNAME: {{ .Values.landmine.sink.email.hostname }}

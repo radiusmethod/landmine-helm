@@ -4,6 +4,16 @@
 
 replicaCount: 1
 
+landmine:
+  sink:
+    web:
+      hostname: versomas.net
+      protocol: https
+    dns:
+      hostname: versomas.net
+    email:
+      hostname: versomas.net
+
 image:
   registry: 540894334194.dkr.ecr.us-east-1.amazonaws.com
   repository: versomas-landmine
@@ -54,14 +64,20 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: versomas.landmine.app
+      servicePort: 29999
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: versomas.net
+      servicePort: 9999
       paths:
         - path: /
           pathType: Prefix
   tls:
     - hosts:
-        - versomas.landmine.app
+        - "versomas.landmine.app"
+        - "*.versomas.net"
       secretName: ingress-tls
-
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
