@@ -15,7 +15,7 @@ landmine:
     dns:
       hostname: versomas.net
       udpPort: 5300
-      tcpPort: 5301
+      tcpPort: 5300
     rdp:
       port: 3389
     email:

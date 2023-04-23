@@ -38,28 +38,28 @@ spec:
                 name: landmine-config
           ports:
             - name: admin
-              containerPort: 29999
+              containerPort: {{ .Values.landmine.admin.port }}
               protocol: TCP
             - name: sink
-              containerPort: 9999
+              containerPort: {{ .Values.landmine.sink.web.port }}
               protocol: TCP
             - name: dnstcp
-              containerPort: 5300
+              containerPort: {{ .Values.landmine.sink.dns.tcpPort }}
               protocol: TCP
+            - name: dnsudp
+              containerPort: {{ .Values.landmine.sink.dns.udpPort }}
+              protocol: UDP
             - name: rdp
-              containerPort: 3389
+              containerPort: {{ .Values.landmine.sink.rdp.port }}
               protocol: TCP
-#            - name: dnsudp
-#              containerPort: 5301
-#              protocol: UDP
           livenessProbe:
             httpGet:
               path: /
-              port: 29999
+              port: {{ .Values.landmine.admin.port }}
           readinessProbe:
             httpGet:
               path: /
-              port: 29999
+              port: {{ .Values.landmine.admin.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

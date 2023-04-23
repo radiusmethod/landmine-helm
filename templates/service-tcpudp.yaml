@@ -12,6 +12,11 @@ spec:
       targetPort: {{ .Values.landmine.sink.dns.tcpPort }}
       nodePort: 30001
       protocol: TCP
+    - name: dnsudp
+      port: {{ .Values.landmine.sink.dns.udpPort }}
+      targetPort: {{ .Values.landmine.sink.dns.udpPort }}
+      nodePort: 30002
+      protocol: UDP
     - name: rdp
       port: {{ .Values.landmine.sink.rdp.port }}
       targetPort: {{ .Values.landmine.sink.rdp.port }}

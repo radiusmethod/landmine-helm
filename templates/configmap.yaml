@@ -3,8 +3,15 @@ kind: ConfigMap
 metadata:
   name: landmine-config
 data:
-  LANDMINE_REDIS_ADDRESS: landmine-redis-master.default.svc.cluster.local
-  LANDMINE_SINK_WEB_HOSTNAME: {{ .Values.landmine.sink.web.hostname }}
-  LANDMINE_SINK_WEB_PROTOCOL: {{ .Values.landmine.sink.web.protocol }}
-  LANDMINE_SINK_DNS_HOSTNAME: {{ .Values.landmine.sink.dns.hostname }}
-  LANDMINE_SINK_EMAIL_HOSTNAME: {{ .Values.landmine.sink.email.hostname }}
+  LANDMINE_REDIS_ADDRESS: "landmine-redis-master.default.svc.cluster.local"
+  LANDMINE_SINK_WEB_HOSTNAME: "{{ .Values.landmine.sink.web.hostname }}"
+  LANDMINE_SINK_WEB_PROTOCOL: "{{ .Values.landmine.sink.web.protocol }}"
+  LANDMINE_SINK_WEB_PORT: "{{ .Values.landmine.sink.web.port }}"
+  LANDMINE_SINK_DNS_HOSTNAME: "{{ .Values.landmine.sink.dns.hostname }}"
+  LANDMINE_SINK_EMAIL_HOSTNAME: "{{ .Values.landmine.sink.email.hostname }}"
+  LANDMINE_SINK_DNS_TCP_PORT: "{{ .Values.landmine.sink.dns.tcpPort }}"
+  LANDMINE_SINK_DNS_UDP_PORT: "{{ .Values.landmine.sink.dns.udpPort }}"
+  LANDMINE_SINK_RDP_PORT: "{{ .Values.landmine.sink.rdp.port }}"
+#  LANDMINE_SINK_SMTP_PORT: {{ .Values.landmine.sink.dns.tcpPort }}
+#  LANDMINE_SINK_MYSQL_PORT", "13309"),
+
