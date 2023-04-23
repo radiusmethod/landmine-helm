@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "landmine.fullname" . }}
+  labels:
+    {{- include "landmine.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.landmine.admin.port }}
+      targetPort: {{ .Values.landmine.admin.port }}
+      protocol: TCP
+      name: admin
+    - port: {{ .Values.landmine.sink.web.port }}
+      targetPort: {{ .Values.landmine.sink.web.port }}
+      protocol: TCP
+      name: sink
+  selector:
+    {{- include "landmine.selectorLabels" . | nindent 4 }}

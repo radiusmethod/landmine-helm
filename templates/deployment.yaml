@@ -38,11 +38,20 @@ spec:
                 name: landmine-config
           ports:
             - name: admin
-              containerPort: {{ .Values.service.admin.port }}
-              protocol: {{ .Values.service.admin.protocol }}
+              containerPort: 29999
+              protocol: TCP
             - name: sink
-              containerPort: {{ .Values.service.sink.port }}
-              protocol: {{ .Values.service.sink.protocol }}
+              containerPort: 9999
+              protocol: TCP
+            - name: dnstcp
+              containerPort: 5300
+              protocol: TCP
+            - name: rdp
+              containerPort: 3389
+              protocol: TCP
+#            - name: dnsudp
+#              containerPort: 5301
+#              protocol: UDP
           livenessProbe:
             httpGet:
               path: /

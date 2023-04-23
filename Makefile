@@ -8,8 +8,10 @@ registry:
 cluster:
 	k3d cluster create rmcluster \
 		--registry-use k3d-rmcluster.localhost:$(REGISTRY_PORT) \
-		--api-port 6443 \
-		-p "443:443@loadbalancer"
+		--api-port 6443 --agents 1 \
+		-p "443:443@loadbalancer" \
+		-p "5300:30001@agent:0" \
+		-p "3389:30003@agent:0"
 
 .PHONY: clean
 clean:

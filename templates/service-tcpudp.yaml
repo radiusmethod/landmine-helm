@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "landmine.fullname" . }}-tcpudp
+  labels:
+    {{- include "landmine.labels" . | nindent 4 }}
+spec:
+  type: NodePort
+  ports:
+    - name: dnstcp
+      port: {{ .Values.landmine.sink.dns.tcpPort }}
+      targetPort: {{ .Values.landmine.sink.dns.tcpPort }}
+      nodePort: 30001
+      protocol: TCP
+    - name: rdp
+      port: {{ .Values.landmine.sink.rdp.port }}
+      targetPort: {{ .Values.landmine.sink.rdp.port }}
+      nodePort: 30003
+      protocol: TCP
+#    - name: dnsudp
+#      port: {{ .Values.landmine.sink.dns.udpPort }}
+#      targetPort: {{ .Values.landmine.sink.dns.udpPort }}
+#      nodePort: 30002
+#      protocol: UDP
+  selector:
+    {{- include "landmine.selectorLabels" . | nindent 4 }}
