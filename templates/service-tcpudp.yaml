@@ -22,10 +22,5 @@ spec:
       targetPort: {{ .Values.landmine.sink.rdp.port }}
       nodePort: 30003
       protocol: TCP
-#    - name: dnsudp
-#      port: {{ .Values.landmine.sink.dns.udpPort }}
-#      targetPort: {{ .Values.landmine.sink.dns.udpPort }}
-#      nodePort: 30002
-#      protocol: UDP
   selector:
     {{- include "landmine.selectorLabels" . | nindent 4 }}

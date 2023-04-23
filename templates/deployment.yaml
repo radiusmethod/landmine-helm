@@ -36,6 +36,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: landmine-config
+          env:
+            - name: "LANDMINE_NOTIFICATION_WEBHOOK"
+              valueFrom:
+                secretKeyRef:
+                  key: notificationWebhook
+                  name: {{ .Release.Name }}
           ports:
             - name: admin
               containerPort: {{ .Values.landmine.admin.port }}

@@ -5,6 +5,7 @@
 replicaCount: 1
 
 landmine:
+  notificationWebhook: ""
   admin:
     port: 29999
   sink:
