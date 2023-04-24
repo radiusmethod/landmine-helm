@@ -7,7 +7,9 @@ replicaCount: 1
 landmine:
   notificationWebhook: ""
   admin:
+    hostname: versomas.landmine.app
     port: 29999
+    protocol: https
   sink:
     web:
       hostname: versomas.net
