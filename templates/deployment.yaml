@@ -58,6 +58,9 @@ spec:
             - name: rdp
               containerPort: {{ .Values.landmine.sink.rdp.port }}
               protocol: TCP
+            - name: smtp
+              containerPort: {{ .Values.landmine.sink.email.port }}
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /

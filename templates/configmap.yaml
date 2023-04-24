@@ -12,5 +12,5 @@ data:
   LANDMINE_SINK_DNS_TCP_PORT: "{{ .Values.landmine.sink.dns.tcpPort }}"
   LANDMINE_SINK_DNS_UDP_PORT: "{{ .Values.landmine.sink.dns.udpPort }}"
   LANDMINE_SINK_RDP_PORT: "{{ .Values.landmine.sink.rdp.port }}"
-#  LANDMINE_SINK_SMTP_PORT: {{ .Values.landmine.sink.dns.tcpPort }}
+  LANDMINE_SINK_SMTP_PORT: "{{ .Values.landmine.sink.email.port }}"
 #  LANDMINE_SINK_MYSQL_PORT", "13309"),

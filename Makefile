@@ -12,7 +12,8 @@ cluster:
 		-p "443:443@loadbalancer" \
 		-p "5300:30001/tcp@agent:0" \
 		-p "5300:30002/udp@agent:0" \
-		-p "3389:30003@agent:0"
+		-p "3389:30003/tcp@agent:0" \
+		-p "2500:30004/tcp@agent:0"
 
 .PHONY: clean
 clean:
@@ -27,3 +28,6 @@ local-helm-install:
 		--set ingress.cert="$(CERT)" \
 		--set ingress.key="$(KEY)" \
 		--set landmine.notificationWebhook=${NOTIFICATION_WEBHOOK}
+
+.PHONY: recycle
+recycle: clean cluster local-helm-install
