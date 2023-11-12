@@ -36,6 +36,10 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+service:
+  type: ClusterIP
+  port: 29999
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
