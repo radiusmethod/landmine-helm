@@ -64,7 +64,7 @@ securityContext: {}
 
 istio:
   enabled: true
-  socketzero:
+  landmine:
     gateways:
       - "istio-system/public"
     hosts:
