@@ -26,7 +26,7 @@ landmine:
       port: 2500
 
 image:
-  registry: 540894334194.dkr.ecr.us-east-1.amazonaws.com
+  registry: 114589198289.dkr.ecr.us-gov-west-1.amazonaws.com
   repository: versomas-landmine
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
