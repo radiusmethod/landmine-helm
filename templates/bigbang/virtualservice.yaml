@@ -1,0 +1,29 @@
+{{- if and .Values.istio .Values.istio.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: landmine
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ include ";a.name" . }}
+    helm.sh/chart: {{ include "landmine.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/part-of: landmine
+    app.kubernetes.io/component: landmine
+spec:
+  gateways:
+  {{- range .Values.istio.landmine.gateways }}
+  - {{ . }}
+  {{- end }}
+  hosts:
+  {{- range .Values.istio.landmine.hosts }}
+  - {{ tpl . $}}
+  {{- end }}
+  http:
+    - route:
+        - destination:
+            port:
+              number: {{ .Values.service.port | default "80" }}
+            host: landmine.{{ .Release.Namespace }}.svc.cluster.local
+  {{- end }}
