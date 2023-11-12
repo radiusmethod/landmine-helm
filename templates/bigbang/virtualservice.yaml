@@ -5,7 +5,7 @@ metadata:
   name: landmine
   namespace: {{ .Release.Namespace }}
   labels:
-    app.kubernetes.io/name: {{ include ";a.name" . }}
+    app.kubernetes.io/name: {{ include "landmine.name" . }}
     helm.sh/chart: {{ include "landmine.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
