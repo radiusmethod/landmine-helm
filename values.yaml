@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+domain: bigbang.dev
+
 landmine:
   notificationWebhook: ""
   admin:
