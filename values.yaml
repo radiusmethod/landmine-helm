@@ -9,9 +9,17 @@ domain: bigbang.dev
 landmine:
   notificationWebhook: ""
   admin:
-    hostname: versomas.landmine.app
+    hostname: landmine.danny.sb.radiusmethod.us
     port: 29999
     protocol: https
+    skin: "Landmine"
+    banner:
+      label: "INTERNET"
+      colorTheme: "UNCLASSIFIED"
+  deadfall:
+    keys:
+      public: ""
+      private: ""
   sink:
     web:
       hostname: versomas.net

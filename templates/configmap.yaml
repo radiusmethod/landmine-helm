@@ -15,3 +15,8 @@ data:
   LANDMINE_SINK_SMTP_PORT: "{{ .Values.landmine.sink.email.port }}"
   LANDMINE_ADMIN_SERVER_HOSTNAME: "{{ .Values.landmine.admin.hostname }}"
   LANDMINE_ADMIN_SERVER_PROTOCOL: "{{ .Values.landmine.admin.protocol }}"
+  LANDMINE_BANNER_LABEL: "{{ .Values.landmine.admin.banner.label }}"
+  LANDMINE_SKIN: "{{ .Values.landmine.admin.skin }}"
+  LANDMINE_BANNER_CLASSIFICATION_COLOR_THEME: "{{ .Values.landmine.admin.banner.colorTheme }}"
+  DEADFALL_PUBLIC_KEY: "{{ .Values.landmine.deadfall.keys.public }}"
+  DEADFALL_PRIVATE_KEY: "{{ .Values.landmine.deadfall.keys.private }}"
