@@ -20,3 +20,5 @@ data:
   LANDMINE_BANNER_CLASSIFICATION_COLOR_THEME: "{{ .Values.landmine.admin.banner.colorTheme }}"
   DEADFALL_PUBLIC_KEY: "{{ .Values.landmine.deadfall.keys.public }}"
   DEADFALL_PRIVATE_KEY: "{{ .Values.landmine.deadfall.keys.private }}"
+  DNS_NAMESERVER_PREFIXES: "{{ .Values.landmine.sink.dnsNameServerPrefixes }}"
+  DNS_NAMESERVER_IPS: "{{ .Values.landmine.sink.publicIps }}"
