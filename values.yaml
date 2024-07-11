@@ -34,6 +34,7 @@ landmine:
     email:
       hostname: versomas.net
       port: 2500
+    ipRandomizer: false
 
 image:
   registry: 114589198289.dkr.ecr.us-gov-west-1.amazonaws.com

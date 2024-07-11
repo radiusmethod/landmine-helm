@@ -18,6 +18,7 @@ data:
   LANDMINE_BANNER_LABEL: "{{ .Values.landmine.admin.banner.label }}"
   LANDMINE_SKIN: "{{ .Values.landmine.admin.skin }}"
   LANDMINE_BANNER_CLASSIFICATION_COLOR_THEME: "{{ .Values.landmine.admin.banner.colorTheme }}"
+  LANDMINE_SINK_IP_PROFILER_RANDOMIZER: "{{ .Values.landmine.sink.ipRandomizer }}"
   DEADFALL_PUBLIC_KEY: "{{ .Values.landmine.deadfall.keys.public }}"
   DEADFALL_PRIVATE_KEY: "{{ .Values.landmine.deadfall.keys.private }}"
   DNS_NAMESERVER_PREFIXES: "{{ .Values.landmine.sink.dnsNameServerPrefixes }}"
