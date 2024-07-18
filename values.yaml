@@ -37,14 +37,13 @@ landmine:
     ipRandomizer: false
 
 image:
-  registry: 114589198289.dkr.ecr.us-gov-west-1.amazonaws.com
-  repository: versomas-landmine
+  registry: ghcr.io
+  repository: radiusmethod/landmine/landmine
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-imagePullSecrets:
-  - name: ecr
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
