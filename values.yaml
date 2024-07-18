@@ -7,6 +7,9 @@ replicaCount: 1
 domain: bigbang.dev
 
 landmine:
+  license:
+    organization: ""
+    key: ""
   notificationWebhook: ""
   admin:
     hostname: landmine.danny.sb.radiusmethod.us
