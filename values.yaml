@@ -40,8 +40,8 @@ landmine:
     ipRandomizer: false
 
 image:
-  registry: ghcr.io
-  repository: radiusmethod/landmine/landmine
+  registry: ""
+  repository: radiusmethod/landmine
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
