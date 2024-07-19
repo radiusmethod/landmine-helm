@@ -42,16 +42,16 @@ spec:
                 secretKeyRef:
                   key: notificationWebhook
                   name: {{ .Release.Name }}
-{{/*            - name: "LANDMINE_ORGANIZATION"*/}}
-{{/*              valueFrom:*/}}
-{{/*                secretKeyRef:*/}}
-{{/*                  key: landmineOrganization*/}}
-{{/*                  name: {{ .Release.Name }}*/}}
-{{/*            - name: "LANDMINE_LICENSE"*/}}
-{{/*              valueFrom:*/}}
-{{/*                secretKeyRef:*/}}
-{{/*                  key: landmineLicense*/}}
-{{/*                  name: {{ .Release.Name }}*/}}
+            - name: "LANDMINE_ORGANIZATION"
+              valueFrom:
+                secretKeyRef:
+                  key: landmineOrganization
+                  name: {{ .Release.Name }}
+            - name: "LANDMINE_LICENSE"
+              valueFrom:
+                secretKeyRef:
+                  key: landmineLicense
+                  name: {{ .Release.Name }}
           ports:
             - name: admin
               containerPort: {{ .Values.landmine.admin.port }}
