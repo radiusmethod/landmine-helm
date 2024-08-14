@@ -1,6 +1,6 @@
 dependencies:
 - name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 17.9.3
-digest: sha256:eeecb13404b0cbd458b8a351b2ace8e8b92778ddfaead5646542c2879e0abc18
-generated: "2023-04-08T22:09:58.549783-04:00"
+  repository: oci://registry1.dso.mil/bigbang
+  version: 19.6.2-bb.1
+digest: sha256:a55a477d8222df849f2004a78cb55402af4c4c75d31ff50e01ee1130cd2779cd
+generated: "2024-08-13T23:05:08.633035-04:00"
