@@ -12,7 +12,7 @@ landmine:
     key: ""
   notificationWebhook: ""
   admin:
-    hostname: landmine.danny.sb.radiusmethod.us
+    hostname: ""
     port: 29999
     protocol: https
     skin: "Landmine"
@@ -25,17 +25,17 @@ landmine:
       private: ""
   sink:
     web:
-      hostname: versomas.net
+      hostname: ""
       port: 9999
       protocol: https
     dns:
-      hostname: versomas.net
+      hostname: ""
       udpPort: 5300
       tcpPort: 5300
     rdp:
       port: 3389
     email:
-      hostname: versomas.net
+      hostname: ""
       port: 2500
     ipRandomizer: false
 
