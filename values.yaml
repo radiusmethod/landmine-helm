@@ -40,7 +40,7 @@ landmine:
     ipRandomizer: false
 
 image:
-  repository: registry1.dso.mil/ironbank/radiusmethod/landmine/lnamdine
+  repository: registry1.dso.mil/ironbank/radiusmethod/landmine/landmine
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
