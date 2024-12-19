@@ -46,6 +46,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "landmine.selectorLabels" -}}
+app: {{ include "landmine.name" . }}
 app.kubernetes.io/name: {{ include "landmine.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
