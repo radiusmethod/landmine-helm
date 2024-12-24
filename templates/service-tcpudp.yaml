@@ -5,27 +5,23 @@ metadata:
   labels:
     {{- include "landmine.labels" . | nindent 4 }}
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - name: dnstcp
       port: {{ .Values.landmine.sink.dns.tcpPort }}
       targetPort: {{ .Values.landmine.sink.dns.tcpPort }}
-      nodePort: 30001
       protocol: TCP
     - name: dnsudp
       port: {{ .Values.landmine.sink.dns.udpPort }}
       targetPort: {{ .Values.landmine.sink.dns.udpPort }}
-      nodePort: 30002
       protocol: UDP
     - name: rdp
       port: {{ .Values.landmine.sink.rdp.port }}
       targetPort: {{ .Values.landmine.sink.rdp.port }}
-      nodePort: 30003
       protocol: TCP
     - name: smtp
       port: {{ .Values.landmine.sink.email.port }}
       targetPort: {{ .Values.landmine.sink.email.port }}
-      nodePort: 30004
       protocol: TCP
   selector:
     {{- include "landmine.selectorLabels" . | nindent 4 }}
