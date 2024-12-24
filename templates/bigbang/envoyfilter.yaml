@@ -1,0 +1,47 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: "udp-{{ .Values.landmine.sink.dns.udpPort }}-filter"
+  namespace: istio-system
+spec:
+  workloadSelector:
+    labels:
+      app: passthrough-ingressgateway # Targets the correct gateway
+  configPatches:
+    - applyTo: LISTENER
+      match:
+        context: GATEWAY
+        listener:
+          portNumber: {{ .Values.landmine.sink.dns.udpPort }}
+      patch:
+        operation: ADD
+        value:
+          name: "udp-listener-{{ .Values.landmine.sink.dns.udpPort }}"
+          address:
+            socket_address:
+              address: 0.0.0.0
+              port_value: {{ .Values.landmine.sink.dns.udpPort }}
+              protocol: UDP
+          listener_filters:
+            - name: "envoy.filters.udp_listener"
+              typed_config:
+                "@type": "type.googleapis.com/envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig"
+                stat_prefix: "udp_listener"
+                cluster: "landmine-udp-cluster"
+    - applyTo: CLUSTER
+      patch:
+        operation: ADD
+        value:
+          name: "landmine-udp-cluster"
+          connect_timeout: 1s
+          type: STRICT_DNS
+          lb_policy: ROUND_ROBIN
+          load_assignment:
+            cluster_name: "landmine-udp-cluster"
+            endpoints:
+              - lb_endpoints:
+                  - endpoint:
+                      address:
+                        socket_address:
+                          address: landmine-tcpudp.landmine.svc.cluster.local
+                          port_value: {{ .Values.landmine.sink.dns.udpPort }}
