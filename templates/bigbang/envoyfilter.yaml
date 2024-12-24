@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: "udp-{{ .Values.landmine.sink.dns.udpPort }}-filter"
+  name: "udp-dns-{{ .Values.landmine.sink.dns.udpPort }}-filter"
   namespace: istio-system
 spec:
   workloadSelector:
@@ -16,7 +16,7 @@ spec:
       patch:
         operation: ADD
         value:
-          name: "udp-listener-{{ .Values.landmine.sink.dns.udpPort }}"
+          name: "udp-listener-dns-{{ .Values.landmine.sink.dns.udpPort }}"
           address:
             socket_address:
               address: 0.0.0.0
@@ -27,17 +27,17 @@ spec:
               typed_config:
                 "@type": "type.googleapis.com/envoy.extensions.filters.udp.udp_proxy.v3.UdpProxyConfig"
                 stat_prefix: "udp_listener"
-                cluster: "landmine-udp-cluster"
+                cluster: "landmine-udp-dns-cluster"
     - applyTo: CLUSTER
       patch:
         operation: ADD
         value:
-          name: "landmine-udp-cluster"
+          name: "landmine-udp-dns-cluster"
           connect_timeout: 1s
           type: STRICT_DNS
           lb_policy: ROUND_ROBIN
           load_assignment:
-            cluster_name: "landmine-udp-cluster"
+            cluster_name: "landmine-udp-dns-cluster"
             endpoints:
               - lb_endpoints:
                   - endpoint:
