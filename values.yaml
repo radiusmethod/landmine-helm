@@ -30,7 +30,7 @@ landmine:
       protocol: https
     dns:
       hostname: ""
-      udpPort: 5300
+      udpPort: 5301
       tcpPort: 5300
     rdp:
       port: 3389
