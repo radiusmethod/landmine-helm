@@ -11,9 +11,5 @@ spec:
       targetPort: {{ .Values.landmine.admin.port }}
       protocol: TCP
       name: admin
-    - port: {{ .Values.landmine.sink.web.port }}
-      targetPort: {{ .Values.landmine.sink.web.port }}
-      protocol: TCP
-      name: sink
   selector:
     {{- include "landmine.selectorLabels" . | nindent 4 }}

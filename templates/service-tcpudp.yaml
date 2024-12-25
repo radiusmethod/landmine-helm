@@ -23,5 +23,9 @@ spec:
       port: {{ .Values.landmine.sink.email.port }}
       targetPort: {{ .Values.landmine.sink.email.port }}
       protocol: TCP
+    - name: web
+      port: {{ .Values.landmine.sink.web.port }}
+      targetPort: {{ .Values.landmine.sink.web.port }}
+      protocol: TCP
   selector:
     {{- include "landmine.selectorLabels" . | nindent 4 }}
