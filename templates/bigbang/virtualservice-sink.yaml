@@ -16,4 +16,3 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.dns.tcpPort }}
-          weight: 100
