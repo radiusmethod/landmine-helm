@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tcpudp-virtualservice
+  namespace: landmine
+spec:
+  gateways:
+    - istio-system/passthrough
+  hosts:
+    - '*'
+  tcp:
+    - match:
+        - port: {{ .Values.landmine.sink.dns.tcpPort }}
+      route:
+        - destination:
+            host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
+            port:
+              number: {{ .Values.landmine.sink.dns.tcpPort }}
+          weight: 100
