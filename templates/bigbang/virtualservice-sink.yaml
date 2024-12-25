@@ -23,3 +23,17 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.email.port }}
+    - match:
+        - port: {{ .Values.landmine.sink.rdp.port }}
+      route:
+        - destination:
+            host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
+            port:
+              number: {{ .Values.landmine.sink.rdp.port }}
+    - match:
+        - port: {{ .Values.landmine.sink.web.port }}
+      route:
+        - destination:
+            host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
+            port:
+              number: {{ .Values.landmine.sink.web.port }}
