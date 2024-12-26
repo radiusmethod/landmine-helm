@@ -31,7 +31,7 @@ spec:
       targetPort: {{ .Values.landmine.sink.email.port }}
       protocol: TCP
     {{- end }}
-    {{- if gt (int .Values.landmine.sink.wb.port) 0 }}
+    {{- if gt (int .Values.landmine.sink.web.port) 0 }}
     - name: web
       port: {{ .Values.landmine.sink.web.port }}
       targetPort: {{ .Values.landmine.sink.web.port }}
