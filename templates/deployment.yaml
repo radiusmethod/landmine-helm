@@ -56,31 +56,6 @@ spec:
             - name: admin
               containerPort: {{ .Values.landmine.admin.port }}
               protocol: TCP
-              {{- if gt (int .Values.landmine.sink.web.port) 0 }}
-            - name: sink
-              containerPort: {{ .Values.landmine.sink.web.port }}
-              protocol: TCP
-              {{- end }}
-              {{- if gt (int .Values.landmine.sink.dns.tcpPort) 0 }}
-            - name: dnstcp
-              containerPort: {{ .Values.landmine.sink.dns.tcpPort }}
-              protocol: TCP
-              {{- end }}
-              {{- if gt (int .Values.landmine.sink.dns.udpPort) 0 }}
-            - name: dnsudp
-              containerPort: {{ .Values.landmine.sink.dns.udpPort }}
-              protocol: UDP
-              {{- end }}
-              {{- if gt (int .Values.landmine.sink.rdp.port) 0 }}
-            - name: rdp
-              containerPort: {{ .Values.landmine.sink.rdp.port }}
-              protocol: TCP
-              {{- end }}
-              {{- if gt (int .Values.landmine.sink.email.port) 0 }}
-            - name: smtp
-              containerPort: {{ .Values.landmine.sink.email.port }}
-              protocol: TCP
-              {{- end }}
           livenessProbe:
             httpGet:
               path: /
