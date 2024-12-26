@@ -2,7 +2,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
-  name: "udp-dns-{{ .Values.landmine.sink.dns.udpPort }}-filter"
+  name: "udp-dns-5301-filter"
   namespace: istio-system
 spec:
   workloadSelector:
