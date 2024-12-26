@@ -1,4 +1,4 @@
-{{- if gt .Values.landmine.sink.dns.udpPort 0 }}
+{{- if gt (int .Values.landmine.sink.dns.udpPort) 0 }}
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
