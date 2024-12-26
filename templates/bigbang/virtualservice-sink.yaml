@@ -9,6 +9,7 @@ spec:
   hosts:
     - '*'
   tcp:
+    {{- if gt (int .Values.landmine.sink.dns.tcpPort) 0 }}
     - match:
         - port: {{ .Values.landmine.sink.dns.tcpPort }}
       route:
@@ -16,6 +17,8 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.dns.tcpPort }}
+    {{- end }}
+    {{- if gt (int .Values.landmine.sink.email.port) 0 }}
     - match:
         - port: {{ .Values.landmine.sink.email.port }}
       route:
@@ -23,6 +26,8 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.email.port }}
+    {{- end }}
+    {{- if gt (int .Values.landmine.sink.rdp.port) 0 }}
     - match:
         - port: {{ .Values.landmine.sink.rdp.port }}
       route:
@@ -30,6 +35,8 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.rdp.port }}
+    {{- end }}
+    {{- if gt (int .Values.landmine.sink.web.port) 0 }}
     - match:
         - port: {{ .Values.landmine.sink.web.port }}
       route:
@@ -37,3 +44,4 @@ spec:
             host: landmine-tcpudp.{{ .Release.Namespace }}.svc.cluster.local
             port:
               number: {{ .Values.landmine.sink.web.port }}
+    {{- end }}
