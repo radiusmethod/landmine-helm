@@ -1,3 +1,4 @@
+{{- if gt .Values.landmine.sink.dns.udpPort 0 }}
 apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
@@ -45,3 +46,4 @@ spec:
                         socket_address:
                           address: landmine-tcpudp.landmine.svc.cluster.local
                           port_value: {{ .Values.landmine.sink.dns.udpPort }}
+{{- end }}
