@@ -10,7 +10,6 @@ landmine:
   license:
     organization: ""
     key: ""
-  notificationWebhook: ""
   integrations:
     ses:
       accessKeyId: ""

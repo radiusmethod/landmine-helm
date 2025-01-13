@@ -37,11 +37,6 @@ spec:
             - configMapRef:
                 name: landmine-config
           env:
-            - name: "LANDMINE_NOTIFICATION_WEBHOOK"
-              valueFrom:
-                secretKeyRef:
-                  key: notificationWebhook
-                  name: {{ .Release.Name }}
             - name: "LANDMINE_ORGANIZATION"
               valueFrom:
                 secretKeyRef:
