@@ -52,6 +52,16 @@ spec:
                 secretKeyRef:
                   key: landmineLicense
                   name: {{ .Release.Name }}
+            - name: "LANDMINE_SES_AWS_ACCESS_KEY_ID"
+              valueFrom:
+                secretKeyRef:
+                  key: sesAccessKeyId
+                  name: {{ .Release.Name }}
+            - name: "LANDMINE_SES_AWS_SECRET_ACCESS_KEY"
+              valueFrom:
+                secretKeyRef:
+                  key: sesSecretAccessKey
+                  name: {{ .Release.Name }}
           ports:
             - name: admin
               containerPort: {{ .Values.landmine.admin.port }}

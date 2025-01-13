@@ -11,6 +11,10 @@ landmine:
     organization: ""
     key: ""
   notificationWebhook: ""
+  integrations:
+    ses:
+      accessKeyId: ""
+      secretAccessKey: ""
   admin:
     hostname: ""
     port: 29999
